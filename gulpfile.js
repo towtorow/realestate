@@ -12,7 +12,7 @@ function js(cb){
   .pipe(ngAnnotation())
   .pipe(uglify())
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('assets'));
   cb();
 }
 
@@ -25,7 +25,7 @@ function devServer(cb){
   nodemon({
     script : 'server.js',
     ext : 'js',
-    ignore : ['ng*', 'gulp*', 'assets*']
+    ignore : ['ng*', 'gulp*', 'dist*']
   });
   cb();
 }

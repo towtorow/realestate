@@ -5,7 +5,7 @@
 ### Angular ###
 ## Angular ##
 # compiled output
-dist/
+assets/
 tmp/
 app/**/*.js
 app/**/*.js.map
