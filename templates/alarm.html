@@ -1,0 +1,43 @@
+  <div class = "container">
+    <div class="mx-auto" style="width: 1250px;">
+      <div class="m-5 text-center">
+        <h1>알림보기</h1>
+      </div>
+      <h2>임대알림</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">부동산소재지</th>
+              <th scope="col">임차인</th>
+              <th scope="col">임차인연락처</th>
+              <th scope="col">보증금</th>
+              <th scope="col">차임</th>
+              <th scope="col">차임지불날짜</th>
+              <th scope="col">차임D-Day</th>
+              <th scope="col">계약만료날짜</th>
+              <th scope="col">만료D-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat = "alarm in alarmList">
+              <td scope="row">{{alarm.realEstate.site}}</td>
+              <td>{{alarm.hirer.hirerName}}</td>
+              <td>{{alarm.hirer.hirerPhone}}</td>
+              <td>{{alarm.deposit}}</td>
+              <td>{{alarm.rent}}</td>
+              <td>{{alarm.rentPayDate | date : 'yyyy년 MM월 dd일'}}</td>
+              <td>{{calcDateDiff(alarm.rentPayDate)}}</td>
+              <td>{{alarm.contrExpDate | date : 'yyyy년 MM월 dd일'}}</td>
+              <td>{{calcDateDiff(alarm.contrExpDate)}}</td>
+              <td><button type="button" ng-click="confirmAlarm(alarm)" class="btn btn-primary btn-lg btn-block">차임수령</button></td>
+              <td><button type="button" class="btn btn-secondary btn-lg btn-block" ng-click="confirmExp(alarm)">만료확인</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mx-auto" style="width: 600px;">
+            <div class="m-5">
+              <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="indexButton()">뒤로가기</button>
+            </div>
+          </div>
+      </div>
+    </div>

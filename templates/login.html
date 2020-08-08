@@ -1,0 +1,19 @@
+<div class = "container" ng-controller = "LoginCtrl as lc">
+  <div class="mx-auto" style="width: 600px;">
+    <div class="m-5 text-center">
+      <h1>부동산 임대관리 프로그램</h1>
+    </div>
+    <form ng-submit="lc.login(lc.email, lc.password)">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="lc.email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="lc.password">
+      </div>
+      <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
+    </div>
+  </div>

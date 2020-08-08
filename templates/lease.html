@@ -1,0 +1,196 @@
+    <div class = "container">
+      <div class="m-5 text-center">
+        <h1>임대계약 입력하기</h1>
+      </div>
+      <div class="m-5">
+        <form accept-charset="utf-8">
+          <input type="hidden" value="임대" ng-model="contrType">
+
+            <h4>1. 부동산의 표시</h4>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">소재지</span>
+                </div>
+                <input type="text" class="form-control" aria-label="소재지" aria-describedby="basic-addon1" ng-model="site">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">토지</span>
+                </div>
+                  <span class="input-group-text">지목</span>
+                  <input type="text" class="form-control" aria-label="지목" ng-model="landpur">
+                  <span class="input-group-text">면적(m^2)</span>
+                  <input type="number" class="form-control" aria-label="면적" ng-model="landArea">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">건물</span>
+                </div>
+                  <span class="input-group-text">구조</span>
+                  <input type="text" class="form-control" aria-label="구조" ng-model="structure">
+                  <span class="input-group-text">용도</span>
+                  <input type="text" class="form-control" aria-label="용도" ng-model="use">
+                  <span class="input-group-text">면적(m^2)</span>
+                  <input type="number" class="form-control" aria-label="면적" ng-model="buildingArea">
+              </div>
+
+              <h4>2. 계약 내용</h4>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">계약날짜</span>
+                  <input type="date" class="form-control" aria-label="계약날짜" ng-model="contrDate">
+                </div>
+                  <span class="input-group-text">계약만료날짜</span>
+                  <input type="date" class="form-control" aria-label="계약만료날짜" ng-model = "contrExpDate">
+                  <span class="input-group-text">계약기간</span>
+                  <input type="text" class="form-control" aria-label="계약기간" ng-model="contrPeriod">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">보증금(원)</span>
+                </div>
+                <input type="number" class="form-control" aria-label="보증금" aria-describedby="basic-addon1" ng-model="deposit">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">계약금(원)</span>
+                </div>
+                <input type="number" class="form-control" aria-label="계약금" aria-describedby="basic-addon1" ng-model="downPayment">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">중도금(원)</span>
+                </div>
+                  <input type="number" class="form-control" aria-label="중도금" ng-model="middlePayment">
+                  <span class="input-group-text">중도금 지불날짜</span>
+                  <input type="date" class="form-control" aria-label="중도금지불날짜" ng-model="middlePayDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">잔금(원)</span>
+                </div>
+                  <input type="number" class="form-control" aria-label="잔금" ng-model="balance">
+                  <span class="input-group-text">잔금 지불날짜</span>
+                  <input type="date" class="form-control" aria-label="잔금지불날짜" ng-model="balPayDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">차임(원)</span>
+                </div>
+                  <input type="number" class="form-control" aria-label="차임" ng-model="rent">
+                  <span class="input-group-text">차임 지불날짜</span>
+                  <input type="date" class="form-control" aria-label="차임지불날짜" ng-model="rentPayDate">
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">특약사항</span>
+                </div>
+                <input type="textarea" class="form-control" aria-label="특약사항" style="height : 200px" ng-model="specContent">
+              </div>
+
+              <h4>3. 거래관련자</h4>
+
+              <h5>3-1. 임대인</h5>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">주소</span>
+                </div>
+                <input type="text" class="form-control" aria-label="주소" aria-describedby="basic-addon1" ng-model="lessorAdrr">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">주민등록번호(-제외)</span>
+                  <input type="text" class="form-control" aria-label="주민등록번호" ng-model="lessorNo">
+                </div>
+                  <span class="input-group-text">전화(-제외)</span>
+                  <input type="text" class="form-control" aria-label="전화" ng-model = "lessorPhone">
+                  <span class="input-group-text">성명</span>
+                  <input type="text" class="form-control" aria-label="성명" ng-model="lessorName">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">대리인</span>
+                  <span class="input-group-text">주소</span>
+                  <input type="text" class="form-control" aria-label="주소" ng-model="lessorAgentAdrr">
+                </div>
+                  <span class="input-group-text">주민등록번호(-제외)</span>
+                  <input type="text" class="form-control" aria-label="주민등록번호" ng-model="lessorAgentNo">
+                  <span class="input-group-text">성명</span>
+                  <input type="text" class="form-control" aria-label="성명" ng-model="lessorAgentName">
+              </div>
+
+              <h5>3-1. 임차인</h5>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">주소</span>
+                </div>
+                <input type="text" class="form-control" aria-label="주소" aria-describedby="basic-addon1" ng-model="hirerAdrr">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">주민등록번호</span>
+                  <input type="text" class="form-control" aria-label="주민등록번호" ng-model="hirerNo">
+                </div>
+                  <span class="input-group-text">전화</span>
+                  <input type="text" class="form-control" aria-label="전화" ng-model="hirerPhone">
+                  <span class="input-group-text">성명</span>
+                  <input type="text" class="form-control" aria-label="성명" ng-model="hirerName">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">대리인</span>
+                  <span class="input-group-text">주소</span>
+                  <input type="text" class="form-control" aria-label="주소" ng-model="hirerAgentAdrr">
+                </div>
+                  <span class="input-group-text">주민등록번호</span>
+                  <input type="text" class="form-control" aria-label="주민등록번호" ng-model="hirerAgentNo">
+                  <span class="input-group-text">성명</span>
+                  <input type="text" class="form-control" aria-label="성명" ng-model="hirerAgentName">
+              </div>
+
+              <h5>3-3. 개업공인중개사</h5>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">사무소소재지</span>
+                </div>
+                <input type="text" class="form-control" aria-label="사무소소재지" aria-describedby="basic-addon1" ng-model="officeSite">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">사무소명칭</span>
+                </div>
+                <input type="text" class="form-control" aria-label="사무소명칭" aria-describedby="basic-addon1" ng-model="officeName">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">대표</span>
+                </div>
+                <input type="text" class="form-control" aria-label="대표" aria-describedby="basic-addon1" ng-model="representative">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">등록번호</span>
+                </div>
+                  <input type="text" class="form-control" aria-label="등록번호" ng-model="regiNo">
+                  <span class="input-group-text">전화</span>
+                  <input type="text" class="form-control" aria-label="전화" ng-model="officePhone">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">소속공인중개사</span>
+                </div>
+                <input type="text" class="form-control" aria-label="소속공인중개사" aria-describedby="basic-addon1" ng-model="liceRealEstateAgent">
+              </div>
+
+              <div class="mx-auto" style="width: 600px;">
+                  <div class="m-5">
+                    <button type="button" id="inputBtn" class="btn btn-primary btn-lg btn-block" ng-click="submitModel()">입력하기</button>
+                    <button type="button" id="searchBtn" class="btn btn-secondary btn-lg btn-block" ng-click="searchBtn()">조회하기</button>
+                  </div>
+                </div>
+            </form>
+          </div>
+      </div>

@@ -1,0 +1,19 @@
+{
+  "name": "realestateapp",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-ng-annotate": "^2.1.0",
+    "gulp-nodemon": "^2.4.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.1",
+    "jwt-simple": "^0.5.5",
+    "mongoose": "^5.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
