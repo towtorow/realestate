@@ -1,5 +1,8 @@
 angular.module('app')
 .controller('AppliCtrl', function( $scope, $window){
+  $scope.$on('$routeChangeStart', function () {
+    $scope.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  });
 //내부 컨트롤러 스코프에서 외부 컨트롤러 스코프로 login 이벤트 전달을 통해 사용자 객체를 전달받음
   $scope.$on('login', function(_, user){
     $scope.currentUser = user;
