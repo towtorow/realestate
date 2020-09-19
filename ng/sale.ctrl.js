@@ -62,4 +62,7 @@ angular.module('app')
     $scope.$emit('search', 'search');
   };
 
+  $scope.backBtn = function(){
+    $scope.$emit('input', 'input');
+  };
 });

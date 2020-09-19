@@ -16,4 +16,7 @@ angular.module('app')
     $scope.$emit('sale', 'sale');
   };
 
+  $scope.index = function(){
+    $scope.$emit('index', 'index');
+  };
 });
