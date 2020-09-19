@@ -14,8 +14,8 @@ app.controller('AlarmCtrl', function($scope, AlarmSvc, $window){
   });
 //현재 날짜와 입력된 날짜의 차이 구하기
   $scope.calcDateDiff = function (date) {
-    var diff = new Date(date).getDate() - new Date().getDate();
-    return diff;
+    var diff = Math.ceil((new Date(date).getTime()-new Date().getTime())/(1000*60*60*24));
+    return diff+'일';
   };
 //차임수령 버튼 클릭시 차임지불날짜 갱신
   $scope.confirmAlarm = function(alarm){
@@ -47,5 +47,19 @@ app.controller('AlarmCtrl', function($scope, AlarmSvc, $window){
 //index.html 뷰를 띄우기 위해 뒤로가기 버튼 클릭시 내부 컨트롤러 스코프에서 외부 컨트롤러 스코프로 그 이벤트 전달함
   $scope.indexButton = function(){
     $scope.$emit('index', 'index');
+  };
+
+  $scope.subDeposit = function(alarm){
+    console.log(alarm._id);
+    var rentPayDate = new Date(alarm.rentPayDate);
+    AlarmSvc.updateDopositRemain(alarm._id, rentPayDate.setMonth(rentPayDate.getMonth() + 1), alarm.depositRemain-alarm.rent)
+    .then(function(sign){
+      if(sign){
+        alert('차임 보증금에서 차감 성공');
+        $window.location.href= "#!alarm";
+      }else{
+        alert('차임 보증금에서 차감 실패');
+      }
+    });
   };
 });

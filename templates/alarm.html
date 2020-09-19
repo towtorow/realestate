@@ -11,6 +11,7 @@
               <th scope="col">임차인</th>
               <th scope="col">임차인연락처</th>
               <th scope="col">보증금</th>
+              <th scope="col">남은 보증금</th>
               <th scope="col">차임</th>
               <th scope="col">차임지불날짜</th>
               <th scope="col">차임D-Day</th>
@@ -24,13 +25,15 @@
               <td>{{alarm.hirer.hirerName}}</td>
               <td>{{alarm.hirer.hirerPhone}}</td>
               <td>{{alarm.deposit}}</td>
+              <td>{{alarm.depositRemain}}</td>
               <td>{{alarm.rent}}</td>
               <td>{{alarm.rentPayDate | date : 'yyyy년 MM월 dd일'}}</td>
               <td>{{calcDateDiff(alarm.rentPayDate)}}</td>
               <td>{{alarm.contrExpDate | date : 'yyyy년 MM월 dd일'}}</td>
               <td>{{calcDateDiff(alarm.contrExpDate)}}</td>
-              <td><button type="button" ng-click="confirmAlarm(alarm)" class="btn btn-primary btn-lg btn-block">차임수령</button></td>
-              <td><button type="button" class="btn btn-secondary btn-lg btn-block" ng-click="confirmExp(alarm)">만료확인</button></td>
+              <td><button type="button" ng-click="confirmAlarm(alarm)" class="btn btn-primary btn-sm btn-block">차임수령</button></td>
+              <td><button type="button" class="btn btn-secondary btn-sm btn-block" ng-click="confirmExp(alarm)">만료확인</button></td>
+              <td><button type="button" ng-click="subDeposit(alarm)" class="btn btn-primary btn-sm btn-block">보증금 차감</button></td>
             </tr>
           </tbody>
         </table>

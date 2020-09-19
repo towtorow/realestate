@@ -56,6 +56,7 @@ angular.module('app')
       use : use,
       buildingArea : buildingArea,
       deposit : deposit,
+      depositRemain : deposit,
       downPayment : downPayment,
       middlePayment : middlePayment,
       middlePayDate : middlePayDate,

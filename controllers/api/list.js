@@ -61,7 +61,8 @@ router.get('/api/list/sale',function(req, res, next){
 router.get('/api/list/alarm',function(req, res, next){
   var email = req.query.email;
   var now = new Date();
-  Item.find({email : email, isExp : false, $or: [ {rentPayDate: { $gt: now.setDate(now.getDate() - 6)}}, {contrExpDate: { $gt: now.setMonth(now.getMonth() - 2)}} ]})
+  console.log(now.getTime());
+  Item.find({email : email, isExp : '유효', $or: [ {rentPayDate: { $lt: new Date(now.getTime() + 7*1000*60*60*24)}}, {contrExpDate: { $lt: new Date(now.getTime() + 90*1000*60*60*24)}} ]})
   .exec(function(err, list){
     if(err){ return next(err); }
     res.json(list);
@@ -70,7 +71,7 @@ router.get('/api/list/alarm',function(req, res, next){
 //계약 만료시 임대 및 매매 아이템 리스트에 반영
 router.post('/api/list/alarm/updateExp',function(req, res, next){
   var alarm_id = req.body.alarm_id;
-  Item.updateOne({_id : alarm_id}, {$set : {isExp : true}})
+  Item.updateOne({_id : alarm_id}, {$set : {isExp : '만료'}})
   .exec(function(err, item){
   if(err){console.log(err); return next(err);}
   res.send('201');
@@ -86,6 +87,18 @@ router.post('/api/list/alarm/updateRentPayDate',function(req, res, next){
   res.send('201');
   });
 });
+
+router.post('/api/list/alarm/updateDopositRemain',function(req, res, next){
+  var alarm_id = req.body.alarm_id;
+  var rentPayDate = req.body.rentPayDate;
+  var depositRemain = req.body.depositRemain;
+  Item.updateOne({_id : alarm_id}, {$set : {rentPayDate : rentPayDate, depositRemain : depositRemain}})
+  .exec(function(err, item){
+  if(err){console.log(err); return next(err);}
+  res.send('201');
+  });
+});
+
 //임대 아이템 생성
 router.post('/api/list',function(req, res, next){
   console.log('item received');
@@ -104,6 +117,7 @@ router.post('/api/list',function(req, res, next){
       buildingArea : req.body.buildingArea
     },
     deposit : req.body.deposit,
+    depositRemain : req.body.depositRemain,
     downPayment : req.body.downPayment,
     middlePayment : req.body.middlePayment,
     middlePayDate : req.body.middlePayDate,
@@ -222,6 +236,7 @@ router.post('/api/list/lease/update',function(req, res, next){
           buildingArea : req.body.buildingArea
         },
         deposit : req.body.deposit,
+        depositRemain : req.body.depositRemain,
         downPayment : req.body.downPayment,
         middlePayment : req.body.middlePayment,
         middlePayDate : req.body.middlePayDate,

@@ -6,7 +6,7 @@ var Item = db.model('Item', {
   contrDate : {type : Date},
   contrExpDate : {type : Date},
   contrPeriod : {type : String},
-  isExp : {type : Boolean, default : false},
+  isExp : {type : String, default : '유효'},
   realEstate : {
     site : {type : String},
     landpur : {type : String},
@@ -16,6 +16,7 @@ var Item = db.model('Item', {
     buildingArea : {type : Number}
   },
   deposit : {type : Number},
+  depositRemain : {type : Number},
   downPayment : {type : Number},
   middlePayment : {type : Number},
   middlePayDate : {type : Date},

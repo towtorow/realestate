@@ -37,4 +37,18 @@ app.service('AlarmSvc',function($http){
     });
   };
 
+  this.updateDopositRemain = function(alarm_id, modRentPayDate, depositRemain){
+    return $http.post('/api/list/alarm/updateDopositRemain',{
+      alarm_id : alarm_id,
+      rentPayDate : modRentPayDate,
+      depositRemain : depositRemain,
+    }).then(function(val){
+      if(val.data == 201){
+        return true;
+      }else{
+        return false;
+      }
+    });
+  };
+
 });
