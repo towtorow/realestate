@@ -166,8 +166,6 @@ router.post('/api/list/sale',function(req, res, next){
     email : req.body.email,
     contrType : req.body.contrType,
     contrDate : req.body.contrDate,
-    contrExpDate : req.body.contrExpDate,
-    contrPeriod : req.body.contrPeriod,
     realEstate : {
       site : req.body.site,
       landpur : req.body.landpur,
@@ -177,6 +175,7 @@ router.post('/api/list/sale',function(req, res, next){
       buildingArea : req.body.buildingArea
     },
     price : req.body.price,
+    loan : req.body.loan,
     downPayment : req.body.downPayment,
     middlePayment : req.body.middlePayment,
     middlePayDate : req.body.middlePayDate,
@@ -284,11 +283,8 @@ router.post('/api/list/sale/update',function(req, res, next){
   SaleItem.updateOne({ _id: req.body.item_id },
     {
       $set: {
-        isExp : req.body.isExp,
         contrType : req.body.contrType,
         contrDate : req.body.contrDate,
-        contrExpDate : req.body.contrExpDate,
-        contrPeriod : req.body.contrPeriod,
         realEstate : {
           site : req.body.site,
           landpur : req.body.landpur,
@@ -298,6 +294,7 @@ router.post('/api/list/sale/update',function(req, res, next){
           buildingArea : req.body.buildingArea
         },
         price : req.body.price,
+        loan : req.body.loan,
         downPayment : req.body.downPayment,
         middlePayment : req.body.middlePayment,
         middlePayDate : req.body.middlePayDate,

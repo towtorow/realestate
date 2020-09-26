@@ -4,11 +4,8 @@ app.service('SaleDetailSvc', function($http){
 //SaleDetailCtrl에서 전달 받은 파라미터로 매매 아이템 갱신 요청
   var sdsvc = this;
   sdsvc.updateSale = function(
-    isExp,
     item_id,
     contrDate,
-    contrExpDate,
-    contrPeriod,
     site,
     landpur,
     landArea,
@@ -16,6 +13,7 @@ app.service('SaleDetailSvc', function($http){
     use,
     buildingArea,
     price,
+    loan,
     downPayment,
     middlePayment,
     middlePayDate,
@@ -44,12 +42,9 @@ app.service('SaleDetailSvc', function($http){
     liceRealEstateAgent
   ){
     return $http.post('/api/list/sale/update',{
-      isExp : isExp,
       item_id : item_id,
       contrType : '매매',
       contrDate : contrDate,
-      contrExpDate : contrExpDate,
-      contrPeriod : contrPeriod,
       site : site,
       landpur : landpur,
       landArea: landArea,
@@ -57,6 +52,7 @@ app.service('SaleDetailSvc', function($http){
       use : use,
       buildingArea : buildingArea,
       price : price,
+      loan : loan,
       downPayment : downPayment,
       middlePayment : middlePayment,
       middlePayDate : middlePayDate,

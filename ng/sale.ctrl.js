@@ -12,8 +12,6 @@ angular.module('app')
     SaleSvc.registerSale(
       $scope.currentUser.email,
       $scope.contrDate,
-      $scope.contrExpDate,
-      $scope.contrPeriod,
       $scope.site,
       $scope.landpur,
       $scope.landArea,
@@ -21,6 +19,7 @@ angular.module('app')
       $scope.use,
       $scope.buildingArea,
       $scope.price,
+      $scope.loan,
       $scope.downPayment,
       $scope.middlePayment,
       $scope.middlePayDate,

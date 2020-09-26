@@ -4,9 +4,6 @@ var SaleItem = db.model('SaleItem', {
   email : {type : String},
   contrType : {type : String},
   contrDate : {type : Date},
-  contrExpDate : {type : Date},
-  contrPeriod : {type : String},
-  isExp : {type : Boolean, default : false},
   realEstate : {
     site : {type : String},
     landpur : {type : String},
@@ -16,6 +13,7 @@ var SaleItem = db.model('SaleItem', {
     buildingArea : {type : Number}
   },
   price : {type : Number},
+  loan : {type : Number},
   downPayment : {type : Number},
   middlePayment : {type : Number},
   middlePayDate : {type : Date},

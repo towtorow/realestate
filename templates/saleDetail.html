@@ -44,16 +44,18 @@
                   <span class="input-group-text">계약날짜</span>
                   <input type="date" class="form-control" aria-label="계약날짜" ng-model="contrDate" ng-init="contrDate=date(anItem.contrDate)" disabled>
                 </div>
-                  <span class="input-group-text">계약만료날짜</span>
-                  <input type="date" class="form-control" aria-label="계약만료날짜" ng-model = "contrExpDate" ng-init="contrExpDate=date(anItem.contrExpDate)" disabled>
-                  <span class="input-group-text">계약기간</span>
-                  <input type="text" class="form-control" aria-label="계약기간" ng-model="contrPeriod" ng-init="contrPeriod=anItem.contrPeriod" disabled>
-              </div>
+                </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1">매매대금(원)</span>
                 </div>
                 <input type="number" class="form-control" aria-label="매매대금" aria-describedby="basic-addon1" ng-model="price" ng-init="price=anItem.price" disabled>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">대출금(원)</span>
+                </div>
+                <input type="number" class="form-control" aria-label="매매대금" aria-describedby="basic-addon1" ng-model="loan" ng-init="loan=anItem.loan" disabled>
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -75,7 +77,7 @@
                 </div>
                   <input type="number" class="form-control" aria-label="잔금" ng-model="balance" ng-init="balance=anItem.balance" disabled>
                   <span class="input-group-text">잔금 지불날짜</span>
-                  <input type="date" class="form-control" aria-label="잔금지불날짜" ng-model="balPayDate" ng-init="date(balPayDate=anItem.balPayDate)" disabled>
+                  <input type="date" class="form-control" aria-label="잔금지불날짜" ng-model="balPayDate" ng-init="balPayDate=date(anItem.balPayDate)" disabled>
               </div>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -180,24 +182,11 @@
                 </div>
                 <input type="text" class="form-control" aria-label="소속공인중개사" aria-describedby="basic-addon1" ng-model="liceRealEstateAgent" ng-init="liceRealEstateAgent=anItem.licensedAgent.liceRealEstateAgent" disabled>
               </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">만료여부</span>
-                </div>
-                <div>
-                <label class="btn btn-secondary">
-                  <input type="radio" ng-model="isExp" value="만료" disabled class="form-control">만료
-                </label>
-                <label class="btn btn-secondary">
-                  <input type="radio" ng-model="isExp" value="유효" disabled class="form-control">유효
-                </label>
-                </div>
-              </div>
 
               <div class="mx-auto" style="width: 600px;">
                   <div class="m-5">
                     <button type="button" id="inputBtn" class="btn btn-primary btn-lg btn-block" ng-click="modifySale()">수정하기</button>
-                    <button type="button" id="searchBtn" class="btn btn-secondary btn-lg btn-block" ng-click="searchBtn()">조회하기</button>
+                    <button type="button" id="searchBtn" class="btn btn-secondary btn-lg btn-block" ng-click="searchBtn()">뒤로가기</button>
                   </div>
                 </div>
             </form>

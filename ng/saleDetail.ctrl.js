@@ -6,13 +6,6 @@ angular.module('app')
       alert('로그인이 필요한 작업입니다');
       $window.location.href = "#!login";
     }
-    console.log(!$scope.anItem.isExp);
-    console.log($scope.isExp);
-    if(!$scope.anItem.isExp){
-      $scope.isExp = '만료';
-    }else{
-      $scope.isExp = '유효';
-    }
  });
 //search.html 뷰를 띄우기 위해 조회하기 버튼 클릭시 내부 컨트롤러 스코프에서 외부 컨트롤러 스코프로 그 이벤트를 전달함
   $scope.searchBtn = function(){
@@ -26,19 +19,9 @@ angular.module('app')
       $scope.cond = 1;
     }else{
       console.log($scope.anItem._id);
-      if($scope.expButton == "option1"){
-        console.log('유효');
-        $scope.anItem.isExp = false;
-      }else{
-        console.log('만료');
-        $scope.anItem.isExp = true;
-      }
       SaleDetailSvc.updateSale(
-        $scope.anItem.isExp,
         $scope.anItem._id,
         $scope.contrDate,
-        $scope.contrExpDate,
-        $scope.contrPeriod,
         $scope.site,
         $scope.landpur,
         $scope.landArea,
@@ -46,6 +29,7 @@ angular.module('app')
         $scope.use,
         $scope.buildingArea,
         $scope.price,
+        $scope.loan,
         $scope.downPayment,
         $scope.middlePayment,
         $scope.middlePayDate,
